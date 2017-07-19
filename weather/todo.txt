@@ -1,0 +1,6 @@
+error handling for internet down
+think about long term storage (MySQL)
+plots which update 
+gui for multiple plots
+make the pi a server
+create hmtl page and serve updating plots

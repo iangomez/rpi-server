@@ -1,0 +1,11 @@
+vnc / ssh rpi
+wunderground api 
+crontab
+pushbullet api
+writing to file
+
+---
+
+apache
+javascript
+mySQL
