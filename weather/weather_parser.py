@@ -43,7 +43,7 @@ cnx.commit()
 cursor.close()
 cnx.close()
 
-# # set up api call for pushbullet
-# log = str(city) + ", " + str(temp_f) + ", " + str(wind_mph) 
-# pb = Pushbullet(keys.pbapi)
-# push = pb.push_note('Weather Update', log)
+# set up api call for pushbullet
+log = str(city) + ", " + str(temp_f) + ", " + str(wind_mph) 
+pb = Pushbullet(keys.pbapi)
+push = pb.push_note('Weather Update', log)
