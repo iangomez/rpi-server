@@ -5,7 +5,7 @@
 
 # cron commands for runninig every half hour
 # crontab -e
-# */30 * * * * /usr/bin/python3 /home/pi/weather/weather_parser.py 
+# */30 * * * * /usr/bin/python3 /home/pi/weather/weather_parser.py
 
 import keys
 import requests
@@ -20,13 +20,13 @@ state = 'CA'
 city = 'Alhambra'
 urlData = ('http://api.wunderground.com/api/' +
 	keys.wuapi+'/geolookup/conditions/q/{}/{}.json'.format(state, city))
+jsonData = requests.get(urlData).json()
 
 # parse the json file
-parsed_json = requests.get(urlData).json()
-temp_f = parsed_json['current_observation']['temp_f']
-feelslike_f = parsed_json['current_observation']['feelslike_f']
-wind_mph = parsed_json['current_observation']['wind_mph']
-uv = parsed_json['current_observation']['UV']
+temp_f = jsonData['current_observation']['temp_f']
+feelslike_f = jsonData['current_observation']['feelslike_f']
+wind_mph = jsonData['current_observation']['wind_mph']
+uv = jsonData['current_observation']['UV']
 
 # open database
 cnx = mysql.connector.connect(user='ian',password=keys.password,
@@ -47,7 +47,6 @@ cnx.close()
 
 # set up api call for pushbullet
 if notifyme == 1:
-	log = str(city) + ", " + str(temp_f) + ", " + str(wind_mph) 
+	log = str(city) + ", " + str(temp_f) + ", " + str(wind_mph)
 	pb = Pushbullet(keys.pbapi)
 	push = pb.push_note('Weather Update', log)
-
