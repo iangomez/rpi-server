@@ -13,6 +13,8 @@ import datetime
 import mysql.connector
 from pushbullet import Pushbullet
 
+notifyme = 0
+
 # get data from wunderground
 state = 'CA'
 city = 'Alhambra'
@@ -43,7 +45,9 @@ cnx.commit()
 cursor.close()
 cnx.close()
 
-# # set up api call for pushbullet
-# log = str(city) + ", " + str(temp_f) + ", " + str(wind_mph) 
-# pb = Pushbullet(keys.pbapi)
-# push = pb.push_note('Weather Update', log)
+# set up api call for pushbullet
+if notifyme == 1:
+	log = str(city) + ", " + str(temp_f) + ", " + str(wind_mph) 
+	pb = Pushbullet(keys.pbapi)
+	push = pb.push_note('Weather Update', log)
+
