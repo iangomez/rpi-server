@@ -13,6 +13,7 @@ def read_cpu():
 		["grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}'"],
 		 shell=True)
 	print(str(output)[:2])
+	print(output)
 
 # Function: read_memory (Davy Ragland)
 # This function reads the percent memory available on the raspberry pi.
@@ -27,7 +28,7 @@ def read_memory():
 def read_temp():
 	sensor = Adafruit_DHT.DHT22
 	pin_T = 22
-	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin_T)
 	if humidity is not None and temperature is not None:
     		print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
 	else:
@@ -35,3 +36,4 @@ def read_temp():
 
 read_cpu()
 read_memory()
+read_temp()
