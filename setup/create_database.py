@@ -36,9 +36,14 @@ table_sensors = ("CREATE TABLE sensors ("
     "cpu DECIMAL(8,2),"
     "dht1_T DECIMAL(5,2),"
     "dht1_hum DECIMAL(5,2))")
+table_wifi = ("CREATE TABLE wifi ("
+    "dt DATETIME,"
+    "ping DECIMAL(5,2)"
+    "down DECIMAL(5,2)"
+    "up DECIMAL(5,2))")
 
 # make the tables
-table_names = ["weather", "sensors"]
+table_names = ["weather", "sensors", "wifi"]
 tables = [table_weather, table_sensors]
 for table, table_name in zip(tables, table_names):
     try:

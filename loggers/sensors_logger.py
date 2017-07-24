@@ -17,7 +17,7 @@ cpu = smartpi.read_cpu()
 T = smartpi.read_temp()[1]
 humidity = smartpi.read_temp()[0]
 
-# add data
+# add sensor data
 add_data = ("INSERT INTO sensors"
 	"(dt, cpu, dht1_T, dht1_hum)"
 	"VALUES (NOW(), %s, %s, %s)")

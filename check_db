@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-mysql -u root -pCNKlibrary <<MY_QUERY
-USE homeautomation
-SELECT * FROM weather WHERE dt BETWEEN DATE_SUB(NOW(), INTERVAL 3 DAY) AND NOW();
-SELECT * FROM sensors WHERE dt BETWEEN DATE_SUB(NOW(), INTERVAL 1 DAY) AND NOW();
