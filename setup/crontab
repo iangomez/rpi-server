@@ -1,0 +1,3 @@
+*/10 * * * * /home/pi/rpi-server/loggers/weather_logger.py
+*/1 * * * * /home/pi/rpi-server/loggers/sensors_logger.py
+*/30 * * * * /home/pi/rpi-server/loggers/wifi_logger.py
