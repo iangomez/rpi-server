@@ -1,4 +1,4 @@
-#!/usr/bin python3
+#!/usr/bin/python3
 # Create MySQL databases
 # ian gomez
 # July 23, 2017
@@ -8,7 +8,7 @@
 import keys
 import mysql.connector
 
-db_name = "home-automation"
+db_name = "homeautomation"
 
 # open mysql
 cnx = mysql.connector.connect(user='ian',password=keys.password)
