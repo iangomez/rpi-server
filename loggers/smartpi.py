@@ -5,6 +5,8 @@
 
 import subprocess
 import Adafruit_DHT
+import mysql.connector
+import keys
 
 # Function: read_cpu (Davy Ragland)
 # This function reads the percent memory used by the CPU.
@@ -32,3 +34,14 @@ def read_temp(pin = 22):
 	if humidity and temperature is not None:
 		temperature = temperature * 1.8 + 32 # convert to F
 	return humidity, temperature
+
+# Function: add2msql
+# Adds the data to the mysql database
+def add2msql(add_data,data):
+	cnx = mysql.connector.connect(user='ian',password=keys.password,
+		host='localhost',database='homeautomation')
+	cursor = cnx.cursor()
+	cursor.execute(add_data, data)
+	cnx.commit()
+	cursor.close()
+	cnx.close()
