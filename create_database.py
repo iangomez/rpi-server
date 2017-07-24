@@ -8,12 +8,11 @@
 import keys
 import mysql.connector
 
-db_name = "homeautomation"
-
-# open mysql
 cnx = mysql.connector.connect(user='ian',password=keys.password)
 cursor = cnx.cursor()
 
+# make database
+db_name = "homeautomation"
 try:
     print("Creating database {}: ".format(db_name), end='')
     cursor.execute(
@@ -24,17 +23,23 @@ except mysql.connector.Error as err:
 else:
     print("OK\n")
 
-# weather table, pi info, sensors (sacrificing readability for space)
+# weather table, pi info, sensors
 table_weather = ("CREATE TABLE weather ("
-	"dt DATETIME, zone TEXT, temp_f DECIMAL(4,2), feelslike_f DECIMAL(4,2),"
-	"wind_mph DECIMAL(4,1), UV INT(2))")
-table_pinfo = ("CREATE TABLE pinfo (cpu DECIMAL(3,2))")
-table_sensors = ("CREATE TABLE sensors (dht1_T DECIMAL(3,2),"
-    " dht1_hum DECIMAL(3,2))")
+	"dt DATETIME,"
+    "zone TEXT,"
+    "temp_f DECIMAL(4,2),"
+    "feelslike_f DECIMAL(4,2),"
+	"wind_mph DECIMAL(4,1),"
+    "UV INT(2))")
+table_pinfo = ("CREATE TABLE pinfo (
+    "cpu DECIMAL(3,2))")
+table_sensors = ("CREATE TABLE sensors ("
+    "dht1_T DECIMAL(3,2),"
+    "dht1_hum DECIMAL(3,2))")
+
+# make the tables
 table_names = ["weather", "pinfo", "sensors"]
 tables = [table_weather, table_pinfo, table_sensors]
-
-# make the table if it doesn't already exist
 for table, table_name in zip(tables, table_names):
     try:
         print("Creating table {}: ".format(table_name), end='')
@@ -47,3 +52,6 @@ for table, table_name in zip(tables, table_names):
             print(err.msg)
     else:
         print("OK\n")
+
+cursor.close()
+cnx.close()
