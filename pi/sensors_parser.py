@@ -13,11 +13,11 @@ cnx = mysql.connector.connect(user='ian',password=keys.password,
 cursor = cnx.cursor()
 
 # add data
-add_data = ("INSERT INTO pinfo"
-	"(dt, dht1_T, dht1_hum)"
+add_data = ("INSERT INTO sensors"
+	"(dt, cpu, dht1_T, dht1_hum)"
 	"VALUES (NOW(), %s, %s, %s)")
 data = (pit.read_cpu(), pit.read_temp()[1], pit.read_temp()[0])
-cursor.execute(add_data,data)
+cursor.execute(add_data, data)
 cnx.commit()
 
 # close connection

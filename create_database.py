@@ -31,9 +31,6 @@ table_weather = ("CREATE TABLE weather ("
     "feelslike_f DECIMAL(4,2),"
 	"wind_mph DECIMAL(4,1),"
     "UV INT(2))")
-table_pinfo = ("CREATE TABLE pinfo ("
-	"dt DATETIME,"
-    "cpu DECIMAL(3,2))")
 table_sensors = ("CREATE TABLE sensors ("
 	"dt DATETIME,"
     "cpu DECIMAL(3,2),"
@@ -41,8 +38,8 @@ table_sensors = ("CREATE TABLE sensors ("
     "dht1_hum DECIMAL(3,2))")
 
 # make the tables
-table_names = ["weather", "pinfo", "sensors"]
-tables = [table_weather, table_pinfo, table_sensors]
+table_names = ["weather", "sensors"]
+tables = [table_weather, table_sensors]
 for table, table_name in zip(tables, table_names):
     try:
         print("Creating table {}: ".format(table_name), end='')
