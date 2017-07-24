@@ -32,8 +32,10 @@ table_weather = ("CREATE TABLE weather ("
 	"wind_mph DECIMAL(4,1),"
     "UV INT(2))")
 table_pinfo = ("CREATE TABLE pinfo (
+	"dt DATETIME,"
     "cpu DECIMAL(3,2))")
 table_sensors = ("CREATE TABLE sensors ("
+	"dt DATETIME,"
     "dht1_T DECIMAL(3,2),"
     "dht1_hum DECIMAL(3,2))")
 

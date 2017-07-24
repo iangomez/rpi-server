@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 # Weather logger
 # july 15, 2017
 # ian gomez
