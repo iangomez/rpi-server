@@ -16,7 +16,12 @@ cursor = cnx.cursor()
 add_data = ("INSERT INTO sensors"
 	"(dt, cpu, dht1_T, dht1_hum)"
 	"VALUES (NOW(), %s, %s, %s)")
-data = (pit.read_cpu(), pit.read_temp()[1], pit.read_temp()[0])
+cpu = pit.read_cpu()
+T = pit.read_temp()[1]
+humidity = pit.read_temp()[0]
+print("cpu: {}, hum:{}, T:{}".format(cpu,hum,T))
+
+data = (cpu,T,humidity)
 cursor.execute(add_data, data)
 cnx.commit()
 
