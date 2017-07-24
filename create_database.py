@@ -36,6 +36,7 @@ table_pinfo = ("CREATE TABLE pinfo (
     "cpu DECIMAL(3,2))")
 table_sensors = ("CREATE TABLE sensors ("
 	"dt DATETIME,"
+    "cpu DECIMAL(3,2),"
     "dht1_T DECIMAL(3,2),"
     "dht1_hum DECIMAL(3,2))")
 
