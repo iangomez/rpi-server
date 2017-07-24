@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-mysql -u root -pCNKlibrary <<MY_QUERY
-USE weatherdb
-SELECT * FROM weather;

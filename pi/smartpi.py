@@ -26,8 +26,9 @@ def read_memory():
 
 # Function: read_temp
 # Reads the DHT22 temperature sensor connected to the specified pin
-def read_temp():
+def read_temp(pin = 22):
 	sensor = Adafruit_DHT.DHT22
-	pin_T = 22
-	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin_T)
+	humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+	if humidity and temperature is not None:
+		temperature = temperature * 1.8 + 32 # convert to F
 	return humidity, temperature

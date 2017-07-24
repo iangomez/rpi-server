@@ -5,21 +5,22 @@
 
 import mysql.connector
 import keys
-import pit
+import smartpi
 
 # open database
 cnx = mysql.connector.connect(user='ian',password=keys.password,
 	host='localhost',database='homeautomation')
 cursor = cnx.cursor()
 
+# read data
+cpu = smartpi.read_cpu()
+T = smartpi.read_temp()[1]
+humidity = smartpi.read_temp()[0]
+
 # add data
 add_data = ("INSERT INTO sensors"
 	"(dt, cpu, dht1_T, dht1_hum)"
 	"VALUES (NOW(), %s, %s, %s)")
-cpu = pit.read_cpu()
-T = pit.read_temp()[1]
-humidity = pit.read_temp()[0]
-
 data = (cpu,T,humidity)
 cursor.execute(add_data, data)
 cnx.commit()

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Create MySQL databases
+# Create homeautomation MySQL database
 # ian gomez
 # July 23, 2017
 
@@ -23,7 +23,7 @@ except mysql.connector.Error as err:
 else:
     print("OK\n")
 
-# weather table, pi info, sensors
+# weather and sensors tables
 table_weather = ("CREATE TABLE weather ("
 	"dt DATETIME,"
     "zone TEXT,"
@@ -33,7 +33,7 @@ table_weather = ("CREATE TABLE weather ("
     "UV INT(2))")
 table_sensors = ("CREATE TABLE sensors ("
 	"dt DATETIME,"
-    "cpu DECIMAL(5,2),"
+    "cpu DECIMAL(8,2),"
     "dht1_T DECIMAL(5,2),"
     "dht1_hum DECIMAL(5,2))")
 
