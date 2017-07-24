@@ -44,7 +44,7 @@ table_wifi = ("CREATE TABLE wifi ("
 
 # make the tables
 table_names = ["weather", "sensors", "wifi"]
-tables = [table_weather, table_sensors]
+tables = [table_weather, table_sensors, table_wifi]
 for table, table_name in zip(tables, table_names):
     try:
         print("Creating table {}: ".format(table_name), end='')
