@@ -3,6 +3,7 @@
 # Ian Gomez with special thanks to Davy Ragland
 # July 23, 2017
 
+import subprocess
 import Adafruit_DHT
 
 # Function: read_cpu (Davy Ragland)
