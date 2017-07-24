@@ -30,7 +30,7 @@ uv = jsonData['current_observation']['UV']
 
 # open database
 cnx = mysql.connector.connect(user='ian',password=keys.password,
-	host='localhost',database='weatherdb')
+	host='localhost',database='homeautomation')
 cursor = cnx.cursor()
 
 # add data
