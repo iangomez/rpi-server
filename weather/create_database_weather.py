@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-# Create MySQL database
+#!/usr/bin python3
+# Create MySQL database for weather
 # ian gomez
 # July 19, 2017
 

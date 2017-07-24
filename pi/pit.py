@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # Pi Telemetry
-# Ian Gomez with special thanks to Davy Ragland 
+# Ian Gomez with special thanks to Davy Ragland
 # July 23, 2017
 
 import Adafruit_DHT
@@ -18,7 +18,7 @@ def read_cpu():
 # This function reads the percent memory available on the raspberry pi.
 def read_memory():
 	output = subprocess.check_output(
-		["df -h | grep /dev/root | cut -d ' ' -f 14-"], 
+		["df -h | grep /dev/root | cut -d ' ' -f 14-"],
 		shell=True)
 	config.memory = str(output)[:2]
 	print(str(output)[:2])
@@ -33,3 +33,6 @@ def read_temp():
     	print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
 	else:
     	print('Failed to get reading. Try again!')
+
+read_cpu()
+read_memory()
