@@ -4,6 +4,7 @@
 # ian gomez
 
 import keys
+import subprocess
 
 # read wifi info
 output = subprocess.check_output(["speedtest-cli --simple"], shell=True)

@@ -6,6 +6,7 @@
 import keys
 import requests
 import datetime
+import smartpi
 
 # get data from wunderground
 state = 'CA'
