@@ -5,6 +5,7 @@
 
 import keys
 import subprocess
+import smartpi
 
 # read wifi info
 output = subprocess.check_output(["speedtest-cli --simple"], shell=True)
