@@ -38,8 +38,8 @@ table_sensors = ("CREATE TABLE sensors ("
     "dht1_hum DECIMAL(5,2))")
 table_wifi = ("CREATE TABLE wifi ("
     "dt DATETIME,"
-    "ping DECIMAL(5,2)"
-    "down DECIMAL(5,2)"
+    "ping DECIMAL(5,2),"
+    "down DECIMAL(5,2),"
     "up DECIMAL(5,2))")
 
 # make the tables
