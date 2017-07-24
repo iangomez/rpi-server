@@ -27,15 +27,15 @@ else:
 table_weather = ("CREATE TABLE weather ("
 	"dt DATETIME,"
     "zone TEXT,"
-    "temp_f DECIMAL(4,2),"
-    "feelslike_f DECIMAL(4,2),"
-	"wind_mph DECIMAL(4,1),"
+    "temp_f DECIMAL(5,2),"
+    "feelslike_f DECIMAL(5,2),"
+	"wind_mph DECIMAL(5,1),"
     "UV INT(2))")
 table_sensors = ("CREATE TABLE sensors ("
 	"dt DATETIME,"
-    "cpu DECIMAL(3,2),"
-    "dht1_T DECIMAL(3,2),"
-    "dht1_hum DECIMAL(3,2))")
+    "cpu DECIMAL(5,2),"
+    "dht1_T DECIMAL(5,2),"
+    "dht1_hum DECIMAL(5,2))")
 
 # make the tables
 table_names = ["weather", "sensors"]

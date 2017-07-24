@@ -19,7 +19,6 @@ add_data = ("INSERT INTO sensors"
 cpu = pit.read_cpu()
 T = pit.read_temp()[1]
 humidity = pit.read_temp()[0]
-print("cpu: {}, hum:{}, T:{}".format(cpu,hum,T))
 
 data = (cpu,T,humidity)
 cursor.execute(add_data, data)
