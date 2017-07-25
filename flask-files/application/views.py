@@ -8,19 +8,21 @@ import matplotlib.pyplot as plt
 @app.route('/') # a decorator
 @app.route('/index')
 def index():
-    return build_plot()
+    return 'Hello, World!'
 
 def build_plot_weather():
     table = 'weather'
     data  = 'dt, zone, temp_f, feelslike_f, wind_mph, UV'
-    rows = fetch_data(table, data)
+    rows = fetch_data(data, table)
     return print(rows)
 
-def fetch_data(table, data):
+def fetch_data(data, table):
 	cnx = mysql.connector.connect(user='ian',password=keys.password,
 		host='localhost',database='homeautomation')
 	cursor = cnx.cursor()
-    get_data = 'SELECT {} FROM {}'.format(data_want, table_want)
+
+    get_data = 'SELECT {} FROM {}'.format(data, table)
+
     cursor.execute(get_data)
     rows = cursor.fetchall()
 	cursor.close()
