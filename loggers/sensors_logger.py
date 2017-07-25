@@ -16,3 +16,5 @@ add_data = ("INSERT INTO sensors"
 	"VALUES (NOW(), %s, %s, %s)")
 data = (cpu, T, humidity)
 smartpi.add2msql(add_data, data)
+
+print("temp={}F, humidity={}%".format(T, humidity))
