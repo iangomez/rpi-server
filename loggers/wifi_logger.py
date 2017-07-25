@@ -6,6 +6,8 @@
 import keys
 import subprocess
 import smartpi
+from pushbullet import Pushbullet
+pb = Pushbullet(keys.pbapi)
 
 # read wifi info
 output = subprocess.check_output(["speedtest-cli --simple"], shell=True)
@@ -20,3 +22,6 @@ add_data = ("INSERT INTO wifi"
 	"VALUES (NOW(), %s, %s, %s)")
 data = (ping, down, up)
 smartpi.add2msql(add_data, data)
+
+push = pb.push_note('Wifi', 'ping: {}ms, down: {}mb/s, up: {}mb/s'.format(ping, down, up))
+
