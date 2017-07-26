@@ -5,10 +5,10 @@
 
 import mysql.connector
 import time
-from datetime 
+from datetime
 
 # open SQL
-db = mysql.connector.connect(user='monitor',password='pswd', 
+db = mysql.connector.connect(user='monitor',password='pswd',
 	host='localhost', database='temps')
 curs = db.cursor()
 

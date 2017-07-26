@@ -9,6 +9,8 @@ import smartpi
 from pushbullet import Pushbullet
 pb = Pushbullet(keys.pbapi)
 
+push = pb.push_note('Top of wifi logger', 'here')
+
 # read wifi info
 output = subprocess.check_output(["speedtest-cli --simple"], shell=True)
 listout = output.split()
@@ -24,4 +26,3 @@ data = (ping, down, up)
 smartpi.add2msql(add_data, data)
 
 push = pb.push_note('Wifi', 'ping: {}ms, down: {}mb/s, up: {}mb/s'.format(ping, down, up))
-
