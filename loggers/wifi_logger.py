@@ -9,10 +9,13 @@ import smartpi
 from pushbullet import Pushbullet
 pb = Pushbullet(keys.pbapi)
 
-push = pb.push_note('Top of wifi logger', 'here')
 
 # read wifi info
-output = subprocess.check_output(["speedtest-cli --simple"], shell=True)
+try:
+	output = subprocess.check_output(["speedtest-cli --simple"], shell=True)
+except Exception as e:
+	print('failed to read or something')
+
 listout = output.split()
 ping = float(listout[1])
 down = float(listout[4])
