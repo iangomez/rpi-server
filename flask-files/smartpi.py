@@ -1,15 +1,28 @@
-from flask import render_template, flash, redirect
-from application import app
+#!/usr/bin/python3
+
+from flask import Flask
 import matplotlib.pyplot as plt
 import mysql.connector
 import keys
 
+# specify app
+app = Flask(__name__)
+app.config.from_object('config')
+dmode = True # set debug mode
+
+################################################################################
+# Views                                                                        #
+################################################################################
+
 # Index
-#-------------------------------------------------------------------------------
 @app.route('/') # a decorator
 @app.route('/index')
 def index():
     return build_plot_weather()
+
+################################################################################
+# Helper Functions                                                             #
+################################################################################
 
 def build_plot_weather():
     table = 'weather'
@@ -25,6 +38,7 @@ def build_plot_weather():
     plot_url = base64.b64encode(img.getvalue()).decode()
     return '<img src="data:image/png;base64,{}">'.format(plot_url)
 
+# general fetch function
 def fetch_data(data, table):
     cnx = mysql.connector.connect(user='ian',password=keys.password,
     	host='localhost',database='homeautomation')
@@ -38,3 +52,6 @@ def fetch_data(data, table):
     cnx.close()
 
     return rows
+
+if __name__ == "__main__":
+    app.run(debug=dmode)
