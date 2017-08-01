@@ -1,4 +1,5 @@
 # SmartPi
+*Python 3.4 on Raspbian for Raspberry Pi 3*
 
 The pi has three different loggers: weather, wifi, and physical sensors. Next up is the creation of a web server which can show the information stored in the MySQL database.
 
